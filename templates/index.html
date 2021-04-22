@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML DEployment Workshop -v1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #100;">
+ <div class="login">
+	<h1>Insurance Fraud Detection</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="incident_severity" placeholder="incident_severity" required="required" /><br>
+        <input type="text" name="insured_hobbies" placeholder="insured_hobbies" required="required" /><br>
+	<input type="text" name="capital_loss" placeholder="capital_loss" required="required" /><br>
+	<input type="text" name="collision_type" placeholder="collision_type" required="required" /><br>
+	<input type="text" name="incident_state" placeholder="incident_state" required="required" /><br>
+	<input type="text" name="policy_annual_premium" placeholder="policy_annual_premium" required="required" /><br>
+	<input type="text" name="loss_by_claims" placeholder="loss_by_claims" required="required" /><br>
+	<input type="text" name="property_claim" placeholder="property_claim" required="required" /><br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Calculate if it's a fraud or not </button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
